@@ -1,3 +1,9 @@
+/**
+ * Checking working age
+ * @param {number} age - Person's age
+ * @returns {boolean} true or false
+ */
+
 function isWorkingAgePerson(age) {
   return age >= 16 && age <= 64;
 }
