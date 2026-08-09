@@ -9,14 +9,33 @@
 // console.log(isWorkingAgePerson(64));
 // console.log(isWorkingAgePerson(70));
 
-const checkMultiplicity = function (num1, num2) {
-  return num1 % num2 === 0;
-};
+// const checkMultiplicity = function (num1, num2) {
+//   return num1 % num2 === 0;
+// };
 
-console.log(checkMultiplicity(10,2));
-console.log(checkMultiplicity(11,2));
-console.log(checkMultiplicity(10,5));
-console.log(checkMultiplicity(10,3));
-console.log(checkMultiplicity(15,3));
-console.log(checkMultiplicity(1,2));
+// console.log(checkMultiplicity(10,2));
+// console.log(checkMultiplicity(11,2));
+// console.log(checkMultiplicity(10,5));
+// console.log(checkMultiplicity(10,3));
+// console.log(checkMultiplicity(15,3));
+// console.log(checkMultiplicity(1,2));
+
+function calculateSurfaceArea(shapeType, param1, param2 = 1) {
+  if (shapeType === "cube" && param1 > 0 && param2 > 0) {
+    return 6 * param1 ** 2;
+  }
+  if (shapeType === "cylinder" && param1 > 0 && param2 > 0) {
+    return 2 * Math.PI * param1 * (param1 + param2);
+  } else {
+    return 0;
+  }
+}
+
+console.log(calculateSurfaceArea("cube", 3));
+console.log(calculateSurfaceArea("cube", 3, 3));
+console.log(calculateSurfaceArea("cbe", 3, 3));
+console.log(calculateSurfaceArea("cube", -3, 3));
+console.log(calculateSurfaceArea("cube", 3, 0));
+
+
 
