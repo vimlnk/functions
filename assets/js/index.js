@@ -20,30 +20,38 @@
 // console.log(checkMultiplicity(15,3));
 // console.log(checkMultiplicity(1,2));
 
-// function calculateSurfaceArea(shapeType, param1, param2 = 1) {
-//   if (shapeType === "cube" && param1 > 0 && param2 > 0) {
-//     return 6 * param1 ** 2;
-//   }
-//   if (shapeType === "cylinder" && param1 > 0 && param2 > 0) {
-//     return 2 * Math.PI * param1 * (param1 + param2);
-//   } else {
-//     return 0;
-//   }
-// }
-
-// console.log(calculateSurfaceArea("cube", 3));
-// console.log(calculateSurfaceArea("cube", 3, 3));
-// console.log(calculateSurfaceArea("cbe", 3, 3));
-// console.log(calculateSurfaceArea("cube", -3, 3));
-// console.log(calculateSurfaceArea("cube", 3, 0));
-
-const calculatePaintBoxes = function (area, layersCount =1){
-return Math.ceil(area*0.1*layersCount);
+function calculateSurfaceArea(shapeType, param1, param2 = 1) {
+  if (shapeType === "cube" && param1 > 0 && param2 > 0) {
+    return 6 * param1 ** 2;
+  }
+  if (shapeType === "cylinder" && param1 > 0 && param2 > 0) {
+    return 2 * Math.PI * param1 * (param1 + param2);
+  } else {
+    return 0;
+  }
 }
 
-console.log(calculatePaintBoxes(20,1));
-console.log(calculatePaintBoxes(25,3));
-console.log(calculatePaintBoxes(35,5));
+const calculatePaintBoxes = function (area, layersCount = 1) {
+  if (
+    area <= 0 ||
+    typeof area !== "number" ||
+    layersCount <= 0 ||
+    typeof layersCount !== "number"
+  ) {
+    return 0;
+  }
+  return Math.ceil(area * 0.1 * layersCount);
+};
 
+const shapeType = "cube";
+const area = calculateSurfaceArea("cube", 3, 5);
+const layersCount = 1;
+const paintBoxes = calculatePaintBoxes(area, layersCount);
 
-
+if (area === 0 || paintBoxes === 0) {
+  console.log("Неможливо виконати розрахунок через некоректні дані.");
+} else {
+  console.log(
+    `Для фарбування фігури ${shapeType} у ${layersCount} шарів необхідно придбати ${paintBoxes} банок фарби.`,
+  );
+}
